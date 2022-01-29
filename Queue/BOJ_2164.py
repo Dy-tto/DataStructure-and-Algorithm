@@ -1,21 +1,12 @@
-N=input()
+# BOJ No.2164
+# 카드2
 
-lst=list(N)
+from collections import deque
 
-lst.sort()
+N=int(input())
+queue=deque(list(range(1,N+1)))
 
-cnt=0
-for i in range(1,len(lst)):
-    temp=sorted(lst)
-    for j in range(i,len(lst)):
-        answer=int(''.join(sorted(temp,reverse=True))[:])
-        cnt+=1
-        if answer%30==0:
-            print(answer,'3')
-            break
-        if cnt==len(lst):
-            print(-1,'4')
-            break
-        temp[i],temp[j]=temp[j],temp[i]
-        print(temp,'2')
-
+while len(queue)!=1:
+    queue.popleft()
+    queue.append(queue.popleft())
+print(queue[0])

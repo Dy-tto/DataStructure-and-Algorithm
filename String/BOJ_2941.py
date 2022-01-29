@@ -1,20 +1,16 @@
-# BOJ No.1065
-# 한수
+# BOJ No.2941
+# 크로아티아 알파벳
 
-def func(n:int)->bool:
-    if n<100:
-        return True
-    num=list(str(n))
-    d=int(num[1])-int(num[0]) # 공차
-    for i in range(1,len(num)): # 각 자리 수가 등차수열인지 검사
-        if int(num[i])-int(num[i-1])!=d:
-            return False
-    return True
+cro=['c=','c-','dz=','d-','lj','nj','s=','z=']
 
-N=int(input())
 count=0
-for i in range(1,N+1):
-    if func(i)==True:
-        count+=1
 
-print(count)
+word=input()
+
+for i in cro:
+    if i in word:
+        count+=word.count(i)
+        word=word.replace(i,' ')
+word=word.replace(' ','')
+print(count+len(word))
+

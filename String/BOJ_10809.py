@@ -1,10 +1,12 @@
-# BOJ No.2675
-# 문자열 반복
+# BOJ No.10809
+# 알파벳 찾기
 
-T=int(input())
+s=list(input())
 
-for i in range(T):
-    R, S=input().split()
-    for j in range(len(S)):
-        print(S[j]*int(R),end='')
-    print('')
+result=[-1]*(ord('z')-ord('a')+1)
+
+for i in s:
+    result[ord(i)-ord('a')]=s.index(i)
+
+for i in range(len(result)):
+    print(result[i],end=' ')

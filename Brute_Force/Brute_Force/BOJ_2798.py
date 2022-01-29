@@ -1,19 +1,18 @@
-# BOJ No.2231
-# 분해합
+# BOJ No.2798
+# 블랙잭
 
-N=int(input())
+N,M=map(int,input().split())
 
-check=True
-for i in range(N):
-    ans=0
-    temp=list(str(i))
+lst=list(map(int,input().split()))
+lst=sorted(lst)
 
-    for j in temp:
-        ans+=int(j)
-    ans+=i
-    if ans==N:
-        print(i)
-        check=False
-        break
-if check==True:
-    print(0)
+max=sum(lst[:3])
+
+for i in range(0,N-2):
+    for j in range(i+1,N-1):
+        for k in range(j+1,N):
+            if lst[i]+lst[j]+lst[k]>max \
+                    and lst[i]+lst[j]+lst[k]<=M:
+                max=lst[i]+lst[j]+lst[k]
+print(max)
+

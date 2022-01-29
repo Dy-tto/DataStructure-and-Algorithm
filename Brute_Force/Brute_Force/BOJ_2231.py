@@ -1,30 +1,20 @@
-# BOJ No.4948
-# 베르트랑 공준 (에라토스테네스의 체)
+# BOJ No.2231
+# 분해합
 
-import math
-import sys
+N=int(input())
 
-def era(N):
-    checker=[True]*2*N
-    prime=[]
+check=True
+for i in range(N):
+    ans=0
+    temp=list(str(i))
 
-    for i in range(2,N+1):
-        if checker[i]==True:
-            prime.append(i)
-            for j in range(i**2,N,i):
-                checker[j]=False
-    return prime
-
-while True:
-    T=int(sys.stdin.readline())
-    if T==0:
+    for j in temp:
+        ans+=int(j)
+    ans+=i
+    if ans==N:
+        print(i)
+        check=False
         break
-    lst=era(2*T+1)
-    ans=[]
-
-    for n in lst:
-        if n>T and n<=2*T:
-            ans.append(n)
-
-    print(len(ans))
+if check==True:
+    print(0)
 

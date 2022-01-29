@@ -1,17 +1,19 @@
-# BOJ No.2798
-# 블랙잭
+# BOJ No.4673
+# 셀프 넘버
 
-N,M=map(int,input().split())
+def d(n:int) -> int:
+    new_num=n
+    for i in str(n):
+        new_num+=int(i)
+    return new_num
 
-lst=list(map(int,input().split()))
-lst=sorted(lst)
+numbers=set(range(1,10000))
+generated_num=set()
 
-max=sum(lst[:3])
+for i in range(1,10000):
+    generated_num.add(d(i))
 
-for i in range(0,N-2):
-    for j in range(i+1,N-1):
-        for k in range(j+1,N):
-            if lst[i]+lst[j]+lst[k]>max \
-                    and lst[i]+lst[j]+lst[k]<=M:
-                max=lst[i]+lst[j]+lst[k]
-print(max)
+self_num=sorted(numbers-generated_num)
+
+for j in range(len(self_num)):
+    print(self_num[j])

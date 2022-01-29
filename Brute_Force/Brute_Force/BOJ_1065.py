@@ -1,20 +1,20 @@
-# BOJ No.4673
-# 셀프 넘버
+# BOJ No.1065
+# 한 수
 
-def d(n:int) -> int:
-    new_num=n
-    for i in str(n):
-        new_num+=int(i)
-    return new_num
+def func(n:int)->bool:
+    if n<100:
+        return True
+    num=list(str(n))
+    d=int(num[1])-int(num[0])
+    for i in range(1,len(num)):
+        if int(num[i])-int(num[i-1])!=d:
+            return False
+    return True
 
-numbers=set(range(1,10000))
-generated_num=set()
+N=int(input())
+count=0
+for i in range(1,N+1):
+    if func(i)==True:
+        count+=1
 
-for i in range(1,10000):
-    generated_num.add(d(i))
-
-self_num=sorted(numbers-generated_num)
-
-for j in range(len(self_num)):
-    print(self_num[j])
-
+print(count)

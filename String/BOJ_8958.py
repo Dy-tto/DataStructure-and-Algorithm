@@ -1,14 +1,21 @@
-# BOJ No.10809
-# 알파벳 찾기
+# BOJ No.8958
+# OX퀴즈
 
-s=list(input())
+T=int(input())
 
-# a~z의 위치를 저장할 리스트 생성
-result=[-1]*(ord('z')-ord('a')+1)
+result=[0]*T
 
-# 각 알파벳이 처음 나오는 index 저장
-for i in s:
-    result[ord(i)-ord('a')]=s.index(i)
+for i in range(T):
+    count=0
+    case=list(input())
+    for j in range(len(case)):
+        if case[j]=='O':
+            result[i]+=(1+count)
+            count+=1
+        else:
+            count=0
 
-for i in range(len(result)):
-    print(result[i],end=' ')
+
+for k in range(len(result)):
+    print(result[k])
+
