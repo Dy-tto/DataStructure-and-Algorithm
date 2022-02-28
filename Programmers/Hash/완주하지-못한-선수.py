@@ -1,3 +1,6 @@
+# Programmers
+# Hash - 완주하지 못한 선수
+
 from collections import Counter
 def solution(participant, completion):
     p=Counter(participant)
